@@ -15,6 +15,7 @@ fi
 
 start_install_bbr() {
 	# clear
+	echo 1
 }
 
 main() {
