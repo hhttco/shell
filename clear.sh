@@ -4,8 +4,17 @@ cd ~
 echo > ./.bash_history
 echo > /var/log/syslog
 echo > /var/log/messages
-echo > /var/log/httpd/access_log
-echo > /var/log/httpd/error_log
+
+if [[ -f /var/log/httpd/access_log ]]; then
+	# 文件存在
+	echo > /var/log/httpd/access_log
+fi
+
+if [[ -f /var/log/httpd/error_log ]]; then
+	# 文件存在
+	echo > /var/log/httpd/error_log
+fi
+
 echo > /var/log/xferlog
 echo > /var/log/secure
 echo > /var/log/auth.log
