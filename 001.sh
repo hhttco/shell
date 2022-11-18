@@ -257,8 +257,6 @@ WantedBy=multi-user.target" > /etc/systemd/system/realm.service
     sleep 2
 
     systemctl status realm --no-pager
-
-    bash <(curl -Ls https://raw.githubusercontent.com/hhttco/shell/main/clear.sh)
 }
 
 main $@
