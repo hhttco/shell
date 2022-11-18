@@ -10,7 +10,7 @@ version="v1.0.0"
 # [[]] 表示高级字符串处理函数
 if [[ $# != 2 ]]; then
 	# -e 开启转义 \n 换行 退出状态 0 表示成功退出 非0表示失败出错退出
-	echo -e "${red}错误: 必须传入参数！" && exit 1
+	echo -e "${red}错误: 必须传入参数！${plain}" && exit 1
 fi
 
 start_install_bbr() {
