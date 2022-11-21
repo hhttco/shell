@@ -98,6 +98,8 @@ install() {
             start 0
         fi
     fi
+
+    before_show_menu
 }
 update_xray(){
   bash -c "$(curl -L https://github.com/crossfw/Xray-install/raw/main/install-release.sh)" @ install
@@ -677,37 +679,36 @@ show_menu() {
     esac
 }
 
-
-if [[ $# > 0 ]]; then
-    case $1 in
-        "start") check_install 0 && start 0
-        ;;
-        "stop") check_install 0 && stop 0
-        ;;
-        "restart") check_install 0 && restart 0
-        ;;
-        "status") check_install 0 && status 0
-        ;;
-        "enable") check_install 0 && enable 0
-        ;;
-        "disable") check_install 0 && disable 0
-        ;;
-        "log") check_install 0 && show_log 0
-        ;;
-        "update") check_install 0 && update 0 $2
-        ;;
-        "config") config $*
-        ;;
-        "install") check_uninstall 0 && install 0
-        ;;
-        "uninstall") check_install 0 && uninstall 0
-        ;;
-        "version") check_install 0 && show_Air-Universe_version 0
-        ;;
-        "update_shell") update_shell
-        ;;
-        *) show_usage
-    esac
-else
+# if [[ $# > 0 ]]; then
+#     case $1 in
+#         "start") check_install 0 && start 0
+#         ;;
+#         "stop") check_install 0 && stop 0
+#         ;;
+#         "restart") check_install 0 && restart 0
+#         ;;
+#         "status") check_install 0 && status 0
+#         ;;
+#         "enable") check_install 0 && enable 0
+#         ;;
+#         "disable") check_install 0 && disable 0
+#         ;;
+#         "log") check_install 0 && show_log 0
+#         ;;
+#         "update") check_install 0 && update 0 $2
+#         ;;
+#         "config") config $*
+#         ;;
+#         "install") check_uninstall 0 && install 0
+#         ;;
+#         "uninstall") check_install 0 && uninstall 0
+#         ;;
+#         "version") check_install 0 && show_Air-Universe_version 0
+#         ;;
+#         "update_shell") update_shell
+#         ;;
+#         *) show_usage
+#     esac
+# else
     show_menu $@
-fi
+# fi
