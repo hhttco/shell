@@ -632,14 +632,16 @@ show_menu() {
     show_status
     # echo && read -p "请输入选择 [0-16]: " num
 
-    if [[ ${has_install_bbr} == 0 ]]; then
-        num=11
-    else
-        num=1
-    fi
+    echo -e "参数个数：$#"
 
     if [[ $# == 0 ]]; then
         echo && read -p "请输入选择 [0-16]: " num
+    else
+        if [[ ${has_install_bbr} == 0 ]]; then
+            num=11
+        else
+            num=1
+        fi
     fi
 
     case "${num}" in
