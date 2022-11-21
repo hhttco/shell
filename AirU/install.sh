@@ -20,6 +20,8 @@ panelConfig() {
   echo "Air-Universe $VERSION + Xray"
   echo "########Air-Universe config#######"
 
+  echo -e "参数个数：$#"
+
   echo $1
   echo "$1"
 
