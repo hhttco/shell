@@ -89,7 +89,7 @@ install() {
     bash -c "$(curl -L https://raw.githubusercontent.com/hhttco/shell/main/AirU/install-release.sh)" @ install
 
     # bash <(curl -Ls https://raw.githubusercontent.com/crossfw/Air-Universe-install/master/install.sh)
-    bash <(curl -Ls https://raw.githubusercontent.com/hhttco/shell/main/AirU/install.sh) $@
+    bash <(curl -Ls https://raw.githubusercontent.com/hhttco/shell/main/AirU/install.sh) "$@"
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start

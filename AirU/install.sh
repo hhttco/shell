@@ -281,7 +281,7 @@ check_sys
 Installation_dependency
 get_latest_version
 identify_the_operating_system_and_architecture
-panelConfig $@
+panelConfig "$@"
 download
 makeConfig
 createService
