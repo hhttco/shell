@@ -7,7 +7,6 @@ plain='\033[0m'
 
 version="v1.0.0"
 has_install_bbr=0
-isok=0
 
 # check root
 [[ $EUID -ne 0 ]] && echo -e "${red}错误: ${plain} 必须使用root用户运行此脚本！\n" && exit 1
@@ -99,7 +98,6 @@ install() {
         fi
     fi
 
-    isok=1
     before_show_menu
 }
 update_xray(){
@@ -640,8 +638,8 @@ show_menu() {
         num=1
     fi
 
-    if [[ ${isok} == 1 ]]; then
-      echo && read -p "请输入选择 [0-16]: " num
+    if [[ $# == 0 ]]; then
+        echo && read -p "请输入选择 [0-16]: " num
     fi
 
     case "${num}" in
