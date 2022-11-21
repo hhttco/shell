@@ -90,8 +90,7 @@ install() {
 
     echo -e "参数个数====== $#"
     # bash <(curl -Ls https://raw.githubusercontent.com/crossfw/Air-Universe-install/master/install.sh)
-    bash -c "$(curl -L https://raw.githubusercontent.com/hhttco/shell/main/AirU/install.sh)" @ "$@"
-    # bash <(curl -Ls https://raw.githubusercontent.com/hhttco/shell/main/AirU/install.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/hhttco/shell/main/AirU/install.sh) $@
     if [[ $? == 0 ]]; then
         if [[ $# == 0 ]]; then
             start
@@ -679,36 +678,36 @@ show_menu() {
 }
 
 
-if [[ $# > 0 ]]; then
-    case $1 in
-        "start") check_install 0 && start 0
-        ;;
-        "stop") check_install 0 && stop 0
-        ;;
-        "restart") check_install 0 && restart 0
-        ;;
-        "status") check_install 0 && status 0
-        ;;
-        "enable") check_install 0 && enable 0
-        ;;
-        "disable") check_install 0 && disable 0
-        ;;
-        "log") check_install 0 && show_log 0
-        ;;
-        "update") check_install 0 && update 0 $2
-        ;;
-        "config") config $*
-        ;;
-        "install") check_uninstall 0 && install 0
-        ;;
-        "uninstall") check_install 0 && uninstall 0
-        ;;
-        "version") check_install 0 && show_Air-Universe_version 0
-        ;;
-        "update_shell") update_shell
-        ;;
-        *) show_usage
-    esac
-else
+# if [[ $# > 0 ]]; then
+#     case $1 in
+#         "start") check_install 0 && start 0
+#         ;;
+#         "stop") check_install 0 && stop 0
+#         ;;
+#         "restart") check_install 0 && restart 0
+#         ;;
+#         "status") check_install 0 && status 0
+#         ;;
+#         "enable") check_install 0 && enable 0
+#         ;;
+#         "disable") check_install 0 && disable 0
+#         ;;
+#         "log") check_install 0 && show_log 0
+#         ;;
+#         "update") check_install 0 && update 0 $2
+#         ;;
+#         "config") config $*
+#         ;;
+#         "install") check_uninstall 0 && install 0
+#         ;;
+#         "uninstall") check_install 0 && uninstall 0
+#         ;;
+#         "version") check_install 0 && show_Air-Universe_version 0
+#         ;;
+#         "update_shell") update_shell
+#         ;;
+#         *) show_usage
+#     esac
+# else
     show_menu $@
-fi
+# fi
