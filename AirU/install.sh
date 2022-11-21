@@ -78,6 +78,8 @@ panelConfig() {
     done
     nType=${nType%?}
   fi
+
+  echo -e "节点类型处理完成：${pUrl} - ${nKey} - ${nIds} - ${nType}"
 }
 
 check_root() {
