@@ -252,7 +252,7 @@ install_bbr() {
     # bash <(curl -L -s https://raw.githubusercontent.com/chiakge/Linux-NetSpeed/master/tcp.sh)
     bash <(curl -L -s https://raw.githubusercontent.com/hhttco/shell/main/AirU/tcp.sh)
     has_install_bbr=1
-    show_menu
+    show_menu $@
     #if [[ $? == 0 ]]; then
     #    echo ""
     #    echo -e "${green}安装 bbr 成功，请重启服务器${plain}"
@@ -662,7 +662,7 @@ show_menu() {
         ;;
         10) check_install && disable
         ;;
-        11) install_bbr
+        11) install_bbr $@
         ;;
         12) check_install && show_Air-Universe_version
         ;;
