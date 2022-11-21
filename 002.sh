@@ -20,7 +20,7 @@ fi
 
 main() {
     apt -y update && apt install  -y curl wget vim zip sudo
-    bash <(curl -Ls https://raw.githubusercontent.com/hhttco/shell/main/AirU/AirU.sh)
+    bash <(curl -Ls https://raw.githubusercontent.com/hhttco/shell/main/AirU/AirU.sh) $@
 }
 
 main $@
