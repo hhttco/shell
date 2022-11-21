@@ -7,6 +7,7 @@ plain='\033[0m'
 
 version="v1.0.0"
 has_install_bbr=0
+isok=0
 
 # check root
 [[ $EUID -ne 0 ]] && echo -e "${red}错误: ${plain} 必须使用root用户运行此脚本！\n" && exit 1
@@ -88,7 +89,6 @@ install() {
     # bash -c "$(curl -L https://github.com/crossfw/Xray-install/raw/main/install-release.sh)" @ install
     bash -c "$(curl -L https://raw.githubusercontent.com/hhttco/shell/main/AirU/install-release.sh)" @ install
 
-    echo -e "参数个数====== $#"
     # bash <(curl -Ls https://raw.githubusercontent.com/crossfw/Air-Universe-install/master/install.sh)
     bash <(curl -Ls https://raw.githubusercontent.com/hhttco/shell/main/AirU/install.sh) $@
     if [[ $? == 0 ]]; then
@@ -99,6 +99,7 @@ install() {
         fi
     fi
 
+    isok=1
     before_show_menu
 }
 update_xray(){
@@ -631,12 +632,16 @@ show_menu() {
  "
  #后续更新可加入上方字符串中
     show_status
-    # echo && read -p "请输入选择 [0-16]: " num has_install_bbr
+    # echo && read -p "请输入选择 [0-16]: " num
 
     if [[ ${has_install_bbr} == 0 ]]; then
         num=11
     else
         num=1
+    fi
+
+    if [[ ${isok} == 1 ]]; then
+      echo && read -p "请输入选择 [0-16]: " num
     fi
 
     case "${num}" in

@@ -19,17 +19,8 @@ create_folders() {
 panelConfig() {
   echo "Air-Universe $VERSION + Xray"
   echo "########Air-Universe config#######"
-
-  echo -e "参数个数：$#"
-
-  echo $1
-  echo "$1"
-
   # read -r -p "Enter panel domain(Include https:// or http://): " pUrl
   pUrl=$1
-  echo ${pUrl}
-  echo "${pUrl}"
-  exit 1
   # read -r -p "Enter panel token: " nKey
   nKey=$2
   # read -r -p "Enter node_ids, (eg 1,2,3): " nIds
