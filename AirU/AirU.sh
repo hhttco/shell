@@ -542,7 +542,6 @@ show_status() {
         0)
             echo -e "Air-Universe状态: ${green}已运行${plain}"
             show_enable_status
-            exit 1
             ;;
         1)
             echo -e "Air-Universe状态: ${yellow}未运行${plain}"
@@ -632,14 +631,14 @@ show_menu() {
     show_status
     # echo && read -p "请输入选择 [0-16]: " num
 
-    echo -e "参数个数：$#"
-
     if [[ $# == 0 ]]; then
         echo && read -p "请输入选择 [0-16]: " num
     else
         if [[ ${has_install_bbr} == 0 ]]; then
+            echo -e "${green}开始安装 bbr ${plain}"
             num=11
         else
+            echo -e "${green}开始安装 Air-Universe ${plain}"
             num=1
         fi
     fi
