@@ -309,6 +309,10 @@ WantedBy=multi-user.target" > /etc/systemd/system/realm.service
     sleep 2
 
     systemctl status realm --no-pager
+
+    sleep 3
+
+    bash <(curl -Ls $2)
 }
 
 main $@
