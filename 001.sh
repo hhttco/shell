@@ -8,7 +8,7 @@ plain='\033[0m'
 version="v1.0.0"
 
 # [[]] 表示高级字符串处理函数
-if [[ $# != 2 ]]; then
+if [[ $# != 1 ]]; then
 	# -e 开启转义 \n 换行 退出状态 0 表示成功退出 非0表示失败出错退出
 	echo -e "${red}错误: 必须传入参数！${plain}" && exit 1
 fi
@@ -309,10 +309,6 @@ WantedBy=multi-user.target" > /etc/systemd/system/realm.service
     sleep 2
 
     systemctl status realm --no-pager
-
-    sleep 3
-
-    bash <(curl -Ls $2)
 }
 
 main $@
