@@ -259,6 +259,58 @@ make_config_file() {
   ]
 }' > /etc/realm/realm.json
         ;;
+        "pr")
+        echo '{
+  "log": {
+        "level": "warn",
+        "output": "/etc/realm/realm.log"
+  },
+  "dns": {
+    "mode": "ipv4_and_ipv6",
+    "protocol": "tcp_and_udp",
+    "min_ttl": 0,
+    "max_ttl": 60,
+    "cache_size": 5
+  },
+  "network": {
+    "use_udp": true,
+    "zero_copy": true,
+    "fast_open": true,
+    "tcp_timeout": 300,
+    "udp_timeout": 30,
+    "send_proxy": false,
+    "send_proxy_version": 2,
+    "accept_proxy": false,
+    "accept_proxy_timeout": 5
+  },
+  "endpoints": [
+    {
+      "listen":"0.0.0.0:31701",
+      "remote":"n8.emovpn.buzz:1253",
+      "listen_transport": "",
+      "remote_transport": ""
+    },
+    {
+        "listen":"0.0.0.0:31702",
+        "remote":"n15.emovpn.buzz:1266",
+        "listen_transport": "",
+        "remote_transport": ""
+    },
+    {
+        "listen":"0.0.0.0:31703",
+        "remote":"n16.emovpn.buzz:1254",
+        "listen_transport": "",
+        "remote_transport": ""
+    },
+    {
+        "listen":"0.0.0.0:31704",
+        "remote":"v6.emovpn.buzz:44333",
+        "listen_transport": "",
+        "remote_transport": ""
+    }
+  ]
+}' > /etc/realm/realm.json
+        ;;
         # "is")
         # echo
         # ;;
