@@ -69,12 +69,6 @@ make_config_file() {
       "remote":"n12.emovpn.buzz:80",
       "listen_transport": "",
       "remote_transport": ""
-    },
-    {
-      "listen":"0.0.0.0:31707",
-      "remote":"v6.emovpn.buzz:44333",
-      "listen_transport": "",
-      "remote_transport": ""
     }
   ]
 }' > /etc/realm/realm.json
