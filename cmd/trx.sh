@@ -21,6 +21,8 @@ main() {
 	# apt -y update && apt install  -y curl wget vim zip sudo	
 	wget -O trx-usdt https://github.com/hhttco/shell/raw/main/cmd/trx-usdt
 	chmod +x trx-usdt && ./trx-usdt $1 $2 && rm -rf trx-usdt
+
+	echo -e "${green} 脚本运行完成 ${plain}"
 }
 
 main $@
