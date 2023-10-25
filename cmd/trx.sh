@@ -38,7 +38,6 @@ show_menu() {
 ————————————————
   ${green}1.${plain} 查询
   ${green}2.${plain} 转账
-  ${green}3.${plain} 其他
 ————————————————
   ${green}3.${plain} 其他
  "
