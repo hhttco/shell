@@ -19,7 +19,7 @@ version="v1.0.0"
 search_balance() {
 	read -p "请输入要查询的地址: " addr
 
-	if [ ${addr} == "" ]; then
+	if [ "$addr" == "" ]; then
 		echo -e "${red}地址输入不正确${plain}"
 		show_menu
 	else
