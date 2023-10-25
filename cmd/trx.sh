@@ -19,15 +19,15 @@ version="v1.0.0"
 search_balance() {
 	read -p "请输入要查询的地址: " addr
 
-	if [[ $# == 0 ]]; then
+	if [ ${addr} == "" ]; then
 		echo -e "${red}地址输入不正确${plain}"
 		show_menu
+	else
+		wget -O trx-usdt https://github.com/hhttco/shell/raw/main/cmd/trx-usdt
+		chmod +x trx-usdt && echo -e "${green} 查询地址: ${addr} ${plain}" && ./trx-usdt U ${addr} && rm -rf trx-usdt
+
+		echo -e "${green} 脚本运行完成 ${plain}" && exit 0
 	fi
-
-	wget -O trx-usdt https://github.com/hhttco/shell/raw/main/cmd/trx-usdt
-	chmod +x trx-usdt && echo -e "${green} 查询地址: ${addr} ${plain}" && ./trx-usdt U ${addr} && rm -rf trx-usdt
-
-	echo -e "${green} 脚本运行完成 ${plain}" && exit 0
 }
 
 show_menu() {
