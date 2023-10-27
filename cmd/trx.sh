@@ -30,6 +30,67 @@ search_balance() {
 	fi
 }
 
+Transfer() {
+	echo -e "
+  ${green}trx-usdt 脚本，${plain}${red}不适用于docker${plain}
+--- 请选择转账类型 ---
+  ${green}0.${plain} 退出脚本
+————————————————
+  ${green}1.${plain} TRX
+  ${green}2.${plain} USDT
+————————————————
+  ${green}3.${plain} 其他
+ "
+	read -p "请输入选择 [0-3]: " num
+
+	case "${num}" in
+		0) exit 0
+		;;
+		1) Transfer_trx
+		;;
+		2) Transfer_usdt
+		;;
+		3) search_balance
+		;;
+		*) echo -e "${red}请输入正确的数字 [0-3]${plain}"
+		;;
+	esac
+}
+
+Transfer_trx() {
+	read -p "请输入转账金额: " money
+	echo
+	read -p "请输入转账地址: " addr
+	echo
+	read -p "请输入收款地址: " toAddr
+	echo
+	read -p "请输入转账私钥: " secretKey
+
+	wget -O trx-usdt https://github.com/hhttco/shell/raw/main/cmd/trx-usdt
+	chmod +x trx-usdt && echo -e "${green} 转账地址: ${addr} ${plain}" && echo
+	./trx-usdt TT ${money} ${addr} ${toAddr} ${secretKey} && rm -rf trx-usdt
+
+	echo && echo -e "${green} 脚本运行完成 ${plain}" && exit 0
+}
+
+Transfer_usdt() {
+	read -p "请输入转账金额: " money
+	echo
+	read -p "请输入转账地址: " addr
+	echo
+	read -p "请输入收款地址: " toAddr
+	echo
+	read -p "请输入合约地址: " seedAddr
+	echo
+	read -p "请输入转账私钥: " secretKey
+
+	wget -O trx-usdt https://github.com/hhttco/shell/raw/main/cmd/trx-usdt
+	chmod +x trx-usdt && echo -e "${green} 转账地址: ${addr} ${plain}" && echo
+	./trx-usdt T ${money} ${addr} ${toAddr} ${seedAddr} ${secretKey} && rm -rf trx-usdt
+
+	echo && echo -e "${green} 脚本运行完成 ${plain}" && exit 0
+}
+
 show_menu() {
 	echo -e "
   ${green}trx-usdt 脚本，${plain}${red}不适用于docker${plain}
@@ -46,9 +107,9 @@ show_menu() {
 	case "${num}" in
 		0) exit 0
 		;;
-		1) search_balance $@
+		1) search_balance
 		;;
-		2) search_balance
+		2) Transfer
 		;;
 		3) search_balance
 		;;
