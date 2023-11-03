@@ -78,11 +78,11 @@ Transfer_usdt() {
 	echo
 	read -p "请输入转账地址: " addr
 	echo
+	read -p "请输入转账私钥: " secretKey
+	echo
 	read -p "请输入收款地址: " toAddr
 	echo
 	read -p "请输入合约地址: " seedAddr
-	echo
-	read -p "请输入转账私钥: " secretKey
 
 	wget -O trx-usdt https://github.com/hhttco/shell/raw/main/cmd/trx-usdt
 	chmod +x trx-usdt && echo -e "${green} 转账地址: ${addr} ${plain}" && echo
