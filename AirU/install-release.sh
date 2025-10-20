@@ -441,7 +441,8 @@ version_gt() {
 }
 
 download_xray() {
-  DOWNLOAD_LINK="https://github.com/XTLS/Xray-core/releases/download/$INSTALL_VERSION/Xray-linux-$MACHINE.zip"
+  # DOWNLOAD_LINK="https://github.com/XTLS/Xray-core/releases/download/$INSTALL_VERSION/Xray-linux-$MACHINE.zip"
+  DOWNLOAD_LINK="https://github.com/XTLS/Xray-core/releases/download/v25.9.11/Xray-linux-$MACHINE.zip"
   echo "Downloading Xray archive: $DOWNLOAD_LINK"
   if ! curl -x "${PROXY}" -R -H 'Cache-Control: no-cache' -o "$ZIP_FILE" "$DOWNLOAD_LINK"; then
     echo 'error: Download failed! Please check your network or try again.'
